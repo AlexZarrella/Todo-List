@@ -24,6 +24,15 @@ theActualEntry: any;
           console.log(this.theActualEntry)
         })
       })
+
+  }
+  deleteTask(){
+    this.theRoute.params
+    .subscribe((params)=> {
+      this.myService.deleteTask(params['id'])
+    .subscribe((theTaskToDelete)=> {
+    })
+    })
   }
 
 }

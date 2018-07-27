@@ -32,4 +32,9 @@ export class TodotasksService {
     return this.http.post('http://localhost:3000/api/tasks/create', newTask)
     .map((res)=> res.json());
   }
+
+  deleteTask(theIdOfTask) {
+    return this.http.post('http://localhost:3000/api/tasks/' +theIdOfTask+ '/delete', {})
+    .map((res)=> res.json());
+  }
 }
