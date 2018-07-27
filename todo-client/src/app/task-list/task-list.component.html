@@ -1,0 +1,19 @@
+<!-- <a [routerLink]= "['']">Home</a>
+<a [routerLink]= "['tasks']">Tasks</a> -->
+
+<h1>
+    To Do List
+</h1>
+
+<a [routerLink]= "['create']">Add Task</a>
+<br>
+
+<button (click)="getTasks()"> To Do List</button>
+
+<div *ngFor= "let oneTask of task" class= "entries">
+
+  <h3>{{oneTask.title}}</h3>
+
+
+  <a [routerLink]= "[oneTask._id, 'details']">See details</a>
+</div>

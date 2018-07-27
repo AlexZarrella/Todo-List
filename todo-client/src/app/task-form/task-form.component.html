@@ -1,0 +1,13 @@
+<form (submit)= "addTask()">
+
+  <div class= "form">
+  <label for="name">Title: </label>
+  <input [(ngModel)]= "myTask.title" type="text" name= "name">
+
+  
+  <label for="content">Description: </label>
+  <input [(ngModel)]= "myTask.description" type="text" name= "content">
+
+<button>Submit</button>
+</div>
+</form>
