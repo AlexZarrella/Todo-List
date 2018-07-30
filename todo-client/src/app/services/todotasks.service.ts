@@ -1,8 +1,8 @@
 import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/catch';
 
 
 @Injectable({
@@ -15,6 +15,8 @@ export class TodotasksService {
     description: String,
     finished: Boolean
   }
+
+  errorMessage:any;
 
   constructor(private http: Http) { }
 
@@ -36,5 +38,39 @@ export class TodotasksService {
   deleteTask(theIdOfTask) {
     return this.http.post('http://localhost:3000/api/tasks/' +theIdOfTask+ '/delete', {})
     .map((res)=> res.json());
+  }
+
+  editTask(theIdOfTask) {
+    return this.http.get('http://localhost:3000/api/tasks/' +theIdOfTask+ '/edit')
+    .map((res)=> res.json());
+  }
+
+  handleError(e){
+    this.errorMessage = e.json().message;
+
+    return Observable.throw(e.json().message);
+  }
+
+  signup(user) {
+    return this.http.post(`http:localhost:3000/api/signup`, user)
+    .map(res => res.json())
+    .catch(this.handleError);
+  }
+  login(user) {
+    return this.http.post(`http://localhost:3000/api/login`, user)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  logout() {
+    return this.http.post(`http://localhost:3000/api/logout`, {})
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  isLoggedIn() {
+    return this.http.get(`http://localhost:3000/api/loggedin`)
+      .map(res => res.json())
+      .catch(this.handleError);
   }
 }

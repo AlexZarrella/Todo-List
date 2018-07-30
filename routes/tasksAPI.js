@@ -36,17 +36,17 @@ router.post('/tasks/create', (req, res, next)=> {
 
 //edit task route
 
-// router.get('/tasks/:id/edit', (req, res, next)=>{
-//     const id = req.params.id;
+router.get('/tasks/:id/edit', (req, res, next)=>{
+    const id = req.params.id;
 
-//     Task.findById(id)
-//         .then((theTask)=>{
-//             res.json(theTask)
-//         })
-//         .catch((err)=>{
-//             res.json(err);
-//         })
-// })
+    Task.findById(id)
+        .then((theTask)=>{
+            res.json(theTask)
+        })
+        .catch((err)=>{
+            res.json(err);
+        })
+})
 
 //update task route
 

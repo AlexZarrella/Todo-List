@@ -10,12 +10,20 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TodotasksService } from './services/todotasks.service';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { TaskFormComponent } from './task-form/task-form.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'tasks', component: TaskListComponent },
   { path: 'tasks/:id/details', component: TaskDetailsComponent },
-  { path: 'tasks/create', component: TaskFormComponent }
+  { path: 'tasks/create', component: TaskFormComponent },
+  { path: 'tasks/:id/edit', component: EditTaskComponent },
+  { path: 'signup', component: UserComponent},
+  { path: 'login', component: UserComponent },
+  { path: 'logout', component: UserComponent },
+  { path: 'loggedin', component: UserComponent }
+
 
 ];
 
@@ -24,7 +32,9 @@ const routes: Routes = [
     AppComponent,
     TaskListComponent,
     TaskDetailsComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    EditTaskComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
