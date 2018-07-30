@@ -12,9 +12,10 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { UserComponent } from './user/user.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: HomeComponent },
   { path: 'tasks', component: TaskListComponent },
   { path: 'tasks/:id/details', component: TaskDetailsComponent },
   { path: 'tasks/create', component: TaskFormComponent },
@@ -34,7 +35,8 @@ const routes: Routes = [
     TaskDetailsComponent,
     TaskFormComponent,
     EditTaskComponent,
-    UserComponent
+    UserComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
